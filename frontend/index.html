@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Express App!</h1>
+    </header>
+    <main>
+        <p>This is a simple application using Express, HTML, and CSS.</p>
+        <button id="fetch-data">Fetch Data</button>
+        <div id="data"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+    </footer>
+    
+    <script>
+        document.getElementById('fetch-data').addEventListener('click', async () => {
+            const response = await fetch('/api/data');
+            const data = await response.json();
+            document.getElementById('data').innerText = data.message;
+        });
+    </script>
+</body>
+</html>
